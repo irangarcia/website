@@ -1,9 +1,12 @@
+import BlurFade from "@/components/magicui/blur-fade";
 import { getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+
+const BLUR_FADE_DELAY = 0.04;
 
 export async function generateMetadata({
   params,
@@ -83,20 +86,26 @@ export default async function Blog({
           }),
         }}
       />
-      <h1 className="text-lg font-medium text-2xl tracking-tighter max-w-[650px]">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mb-8 text-sm max-w-[650px]">
-        <Suspense fallback={<p className="h-5" />}>
-          <p className="text-md text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
-        </Suspense>
-      </div>
-      <article
-        className="prose dark:prose-invert text-muted-foreground"
-        dangerouslySetInnerHTML={{ __html: post.source }}
-      ></article>
+      <BlurFade delay={BLUR_FADE_DELAY}>
+        <h1 className="text-lg font-medium text-2xl tracking-tighter max-w-[650px]">
+          {post.metadata.title}
+        </h1>
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 3}>
+        <div className="flex justify-between items-center mb-8 text-sm max-w-[650px]">
+          <Suspense fallback={<p className="h-5" />}>
+            <p className="text-md text-neutral-600 dark:text-neutral-400">
+              {formatDate(post.metadata.publishedAt)}
+            </p>
+          </Suspense>
+        </div>
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 5}>
+        <article
+          className="prose dark:prose-invert text-muted-foreground"
+          dangerouslySetInnerHTML={{ __html: post.source }}
+        ></article>
+      </BlurFade>
     </section>
   );
 }
