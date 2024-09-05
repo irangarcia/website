@@ -82,8 +82,8 @@ export const ResumeCard = ({
                   height: 0
                 }}
                 transition={{
-                  duration: 0.5,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: 0.25,
+                  ease:'easeInOut',
                 }}
               >
                 <div className="text-sm text-left text-muted-foreground">
