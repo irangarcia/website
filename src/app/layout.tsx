@@ -27,6 +27,14 @@ export const metadata: Metadata = {
     siteName: `${data.name}`,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        width: 1200,
+        height: 630,
+        url: '/og-image.png',
+        alt: 'Text containing: Iran Garcia, Software Engineer.',
+      }
+    ],
   },
   robots: {
     index: true,

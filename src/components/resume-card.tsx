@@ -55,7 +55,7 @@ export const ResumeCard = ({
                 {title}
                 <ChevronRightIcon
                   className={cn(
-                    "size-3 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                    "size-3 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-focus:translate-x-1 group-focus:opacity-100 group-hover:translate-x-1 group-hover:opacity-100",
                     isExpanded ? "rotate-90" : "rotate-0"
                   )}
                 />
@@ -81,7 +81,10 @@ export const ResumeCard = ({
                   opacity: 0,
                   height: 0
                 }}
-                transition={{duration: 0.25}}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
               >
                 <div className="text-sm text-left text-muted-foreground">
                   {description}

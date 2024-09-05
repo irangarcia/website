@@ -15,9 +15,9 @@ export default async function BlogPage() {
 
   return (
     <section>
-      <BlurFade delay={BLUR_FADE_DELAY}>
+      <BlurFade delay={BLUR_FADE_DELAY} className="w-fit">
         <Link href="/blog">
-          <h1 className="text-lg font-medium mb-8 w-fit">Blog</h1>
+          <h1 className="text-lg font-medium mb-8">Blog</h1>
         </Link>
       </BlurFade>
       {posts

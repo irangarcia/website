@@ -5,7 +5,7 @@ export const data = {
   name: "Iran Garcia",
   url: "https://irangarcia.co",
   description: "Software Engineer",
-  summary: "I’m passionate about creating smooth, user-friendly interfaces. I focus on making designs that look great, feel intuitive, and work well for everyone. My goal is to turn complex challenges into simple, enjoyable experiences for all users.",
+  summary: "Dedicated to creating user interfaces that are both stunning and straightforward, I focus on making every interaction smooth and every feature accessible. Whether it's fluid navigation or microinteractions, my goal is to ensure the best possible experience for every user.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
