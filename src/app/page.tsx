@@ -1,7 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ResumeCard } from "@/components/resume-card";
-import { DATA } from "@/data/resume";
+import { data } from "@/data/resume";
 import Markdown from "react-markdown";
 import Link from "next/link";
 
@@ -9,23 +9,20 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
-    <main  className="flex flex-col space-y-10">
+    <main className="flex flex-col space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1">
-              <Link href="/">
-                <BlurFadeText
-                  delay={BLUR_FADE_DELAY}
-                  className="text-lg font-medium"
-                  yOffset={8}
-                  text={DATA.name}
-                />
-              </Link>
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <Link href="/">
+                  <h1 className="text-lg font-medium w-fit">{data.name}</h1>
+                </Link>
+              </BlurFade>
               <BlurFadeText
                 className="text-md text-muted-foreground max-w-[600px]"
                 delay={BLUR_FADE_DELAY}
-                text={DATA.description}
+                text={data.description}
               />
             </div>
           </div>
@@ -37,7 +34,7 @@ export default function Page() {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <Markdown className="prose max-w-full text-pretty font-sans text-md text-muted-foreground dark:prose-invert">
-            {DATA.summary}
+            {data.summary}
           </Markdown>
         </BlurFade>
       </section>
@@ -46,7 +43,7 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-md font-medium">Work Experience</h2>
           </BlurFade>
-          {DATA.work.map((work, id) => (
+          {data.work.map((work, id) => (
             <BlurFade
               key={work.company}
               delay={BLUR_FADE_DELAY * 6 + id * 0.05}
@@ -57,7 +54,6 @@ export default function Page() {
                 altText={work.company}
                 title={work.company}
                 subtitle={work.title}
-                href={work.href}
                 period={`${work.start} - ${work.end ?? "Present"}`}
                 description={work.description}
               />

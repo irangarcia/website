@@ -23,6 +23,7 @@ const config = {
         DEFAULT: {
           css: {
             "--tw-prose-links": "hsl(var(--muted-foreground))",
+            "--tw-prose-pre-bg": "white",
             a: {
               fontWeight: 'normal'
             },

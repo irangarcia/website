@@ -13,7 +13,6 @@ interface ResumeCardProps {
   altText: string;
   title: string;
   subtitle?: string;
-  href?: string;
   period: string;
   description?: string;
 }
@@ -22,28 +21,26 @@ export const ResumeCard = ({
   altText,
   title,
   subtitle,
-  href,
   period,
   description,
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (description) {
-      e.preventDefault();
+      event.preventDefault();
       setIsExpanded(!isExpanded);
     }
   };
 
   return (
-    <Link
-      href={href || "#"}
-      className="block cursor-pointer"
+    <button
+      className="overflow-hidden block cursor-pointer px-[2px] py-2"
       onClick={handleClick}
     >
       <Card className="flex">
         <div className="flex-none">
-          <Avatar className="border size-12 m-auto">
+          <Avatar className="border size-8 m-auto">
             <AvatarImage
               src={logoUrl}
               alt={altText}
@@ -68,27 +65,26 @@ export const ResumeCard = ({
                 {period}
               </div>
             </div>
-            {subtitle && <div className="font-sans text-muted-foreground text-xs">{subtitle}</div>}
+            {subtitle && <div className="font-sans text-left flex text-muted-foreground text-sm">{subtitle}</div>}
           </CardHeader>
           {description && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{
                 opacity: isExpanded ? 1 : 0,
-
                 height: isExpanded ? "auto" : 0,
               }}
               transition={{
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-sm text-muted-foreground"
+              className={`text-sm text-left text-muted-foreground ${isExpanded ? "mt-2" : ""}`}
             >
               {description}
             </motion.div>
           )}
         </div>
       </Card>
-    </Link>
+    </button>
   );
 };

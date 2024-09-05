@@ -1,9 +1,11 @@
 import Navbar from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
+import { data } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import DarkIcon from "./favicon-dark.ico";
+import LightIcon from "./favicon-light.ico";
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -12,17 +14,17 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
+  metadataBase: new URL(data.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: data.name,
+    template: `%s | ${data.name}`,
   },
-  description: DATA.description,
+  description: data.description,
   openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
+    title: `${data.name}`,
+    description: data.description,
+    url: data.url,
+    siteName: `${data.name}`,
     locale: "en_US",
     type: "website",
   },
@@ -38,8 +40,24 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: `${data.name}`,
     card: "summary_large_image",
+  },
+  icons: {
+    icon: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        url: LightIcon.src,
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        url: DarkIcon.src,
+        media: '(prefers-color-scheme: dark)'
+      },
+    ],
   },
   verification: {
     google: "",

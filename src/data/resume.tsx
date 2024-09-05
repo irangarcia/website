@@ -1,11 +1,11 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
-export const DATA = {
+export const data = {
   name: "Iran Garcia",
   url: "https://irangarcia.co",
   description: "Software Engineer",
-  summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan nulla. Donec lacinia commodo lacus, a semper turpis efficitur non. Nunc accumsan egestas tellus, eget luctus leo. Ut iaculis pellentesque tortor, ac dapibus nulla hendrerit nec. Vivamus vitae dictum turpis.", 
+  summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan nulla. Donec lacinia commodo lacus, a semper turpis efficitur non. Nunc accumsan egestas tellus, eget luctus leo. Ut iaculis pellentesque tortor, ac dapibus nulla hendrerit nec. Vivamus vitae dictum turpis.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
@@ -16,7 +16,6 @@ export const DATA = {
         name: "GitHub",
         url: "https://github.com/irangarcia",
         icon: Icons.github,
-
         navbar: true,
       },
       LinkedIn: {
@@ -29,7 +28,6 @@ export const DATA = {
         name: "me@irangarcia.co",
         url: "mailto:me@irangarcia.co",
         icon: Icons.email,
-
         navbar: true,
       },
     },
@@ -37,7 +35,6 @@ export const DATA = {
   work: [
     {
       company: "Trafilea",
-      href: "https://trafilea.com",
       title: "Senior Frontend Engineer",
       logoUrl: "/trafilea.png",
       start: "August 2024",
@@ -46,7 +43,6 @@ export const DATA = {
     },
     {
       company: "Croct",
-      href: "https://croct.com",
       title: "Lead Frontend Engineer",
       logoUrl: "/croct.png",
       start: "May 2021",
@@ -55,7 +51,6 @@ export const DATA = {
     },
     {
       company: "Avanti",
-      href: "https://penseavanti.com.br/",
       title: "Frontend Engineer",
       logoUrl: "/avanti.png",
       start: "April 2020",

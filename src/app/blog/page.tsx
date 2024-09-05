@@ -16,7 +16,9 @@ export default async function BlogPage() {
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="text-lg font-medium mb-8 tracking-tighter">Blog</h1>
+        <Link href="/blog">
+          <h1 className="text-lg font-medium mb-8 w-fit">Blog</h1>
+        </Link>
       </BlurFade>
       {posts
         .sort((a, b) => {
@@ -30,11 +32,11 @@ export default async function BlogPage() {
         .map((post, id) => (
           <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
             <Link
-              className="flex rounded-md flex-col space-y-1 mb-4 hover:bg-[#F5F4F4] -mx-3 px-3 py-3"
+              className="flex rounded-md flex-col space-y-1 mb-4 hover:bg-[#F5F4F4] focus:bg-[#F5F4F4] -mx-3 px-3 py-3"
               href={`/blog/${post.slug}`}
             >
               <div className="w-full flex flex-col">
-                <p className="tracking-tight font-medium">{post.metadata.title}</p>
+                <p className="font-medium">{post.metadata.title}</p>
                 <p className="h-6 text-sm text-muted-foreground">
                   {formatDate(post.metadata.publishedAt)}
                 </p>
