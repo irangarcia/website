@@ -40,7 +40,7 @@ export const data = {
       logoUrl: "/trafilea.png",
       start: "August 2024",
       end: "Present",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan nulla. Donec lacinia commodo lacus, a semper turpis efficitur non. Nunc accumsan egestas tellus, eget luctus leo. Ut iaculis pellentesque tortor, ac dapibus nulla hendrerit nec. Vivamus vitae dictum turpis. Nunc eget diam porta, porta ante quis, gravida leo. Suspendisse id pretium dolor.",
+      description: "In progress.",
     },
     {
       company: "Croct",
@@ -48,7 +48,7 @@ export const data = {
       logoUrl: "/croct.png",
       start: "May 2021",
       end: "August 2024",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan nulla. Donec lacinia commodo lacus, a semper turpis efficitur non. Nunc accumsan egestas tellus, eget luctus leo. Ut iaculis pellentesque tortor, ac dapibus nulla hendrerit nec. Vivamus vitae dictum turpis. Nunc eget diam porta, porta ante quis, gravida leo. Suspendisse id pretium dolor.",
+      description: "Developed a design system with 20+ reusable components using TypeScript, Emotion, and Storybook. Managed a team. Structured, architected, and built high-performance web platforms with React and Next.js. Optimized CI/CD with GitHub Actions, implemented extensive test coverage, and enhanced a11y.",
     },
     {
       company: "Avanti",
@@ -56,7 +56,7 @@ export const data = {
       logoUrl: "/avanti.png",
       start: "April 2020",
       end: "May 2021",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan nulla. Donec lacinia commodo lacus, a semper turpis efficitur non. Nunc accumsan egestas tellus, eget luctus leo. Ut iaculis pellentesque tortor, ac dapibus nulla hendrerit nec. Vivamus vitae dictum turpis. Nunc eget diam porta, porta ante quis, gravida leo. Suspendisse id pretium dolor.",
+      description: "Revamped an e-commerce category page for a leading lingerie brand in Brazil, boosting conversion rates, and developed a real-time free shipping bar using React and Sass. Enhanced the onboarding for B2B customers with a personalized sign-up form using React, Apollo GraphQL, and TypeScript.",
     },
   ],
 } as const;
