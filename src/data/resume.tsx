@@ -36,7 +36,7 @@ export const data = {
   work: [
     {
       company: "Trafilea",
-      title: "Senior Frontend Engineer",
+      title: "Senior Software Engineer",
       logoUrl: "/trafilea.png",
       start: "August 2024",
       end: "Present",
@@ -44,7 +44,7 @@ export const data = {
     },
     {
       company: "Croct",
-      title: "Lead Frontend Engineer",
+      title: "Lead Software Engineer",
       logoUrl: "/croct.png",
       start: "May 2021",
       end: "August 2024",
@@ -52,7 +52,7 @@ export const data = {
     },
     {
       company: "Avanti",
-      title: "Frontend Engineer",
+      title: "Software Engineer",
       logoUrl: "/avanti.png",
       start: "April 2020",
       end: "May 2021",
