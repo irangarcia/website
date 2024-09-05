@@ -3,9 +3,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRightIcon } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 
 interface ResumeCardProps {
@@ -35,7 +34,7 @@ export const ResumeCard = ({
 
   return (
     <button
-      className="overflow-hidden block cursor-pointer px-[2px] py-2"
+      className="w-full overflow-hidden block cursor-pointer px-[2px] py-2 group"
       onClick={handleClick}
     >
       <Card className="flex">
@@ -49,7 +48,7 @@ export const ResumeCard = ({
             <AvatarFallback>{altText[0]}</AvatarFallback>
           </Avatar>
         </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
+        <div className="flex-grow flex ml-4 gap-y-2 flex-col">
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
               <h3 className="inline-flex items-center justify-center font-medium leading-none text-sm">
@@ -67,22 +66,29 @@ export const ResumeCard = ({
             </div>
             {subtitle && <div className="font-sans text-left flex text-muted-foreground text-sm">{subtitle}</div>}
           </CardHeader>
-          {description && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isExpanded ? 1 : 0,
-                height: isExpanded ? "auto" : 0,
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className={`text-sm text-left text-muted-foreground ${isExpanded ? "mt-2" : ""}`}
-            >
-              {description}
-            </motion.div>
-          )}
+          <AnimatePresence initial={false} mode="wait">
+            {isExpanded && (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  height: 0
+                }}
+                animate={{
+                  opacity: 1,
+                  height: "auto",
+                }}
+                exit={{
+                  opacity: 0,
+                  height: 0
+                }}
+                transition={{duration: 0.25}}
+              >
+                <div className="text-sm text-left text-muted-foreground">
+                  {description}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </Card>
     </button>

@@ -5,12 +5,13 @@ export const data = {
   name: "Iran Garcia",
   url: "https://irangarcia.co",
   description: "Software Engineer",
-  summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan nulla. Donec lacinia commodo lacus, a semper turpis efficitur non. Nunc accumsan egestas tellus, eget luctus leo. Ut iaculis pellentesque tortor, ac dapibus nulla hendrerit nec. Vivamus vitae dictum turpis.",
+  summary: "I’m passionate about creating smooth, user-friendly interfaces. I focus on making designs that look great, feel intuitive, and work well for everyone. My goal is to turn complex challenges into simple, enjoyable experiences for all users.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
+    section: "Have a question, suggestion or want to connect? Send me a message on LinkedIn or via email. I look forward to hearing from you.",
     social: {
       GitHub: {
         name: "GitHub",
@@ -25,8 +26,8 @@ export const data = {
         navbar: true,
       },
       Email: {
-        name: "me@irangarcia.co",
-        url: "mailto:me@irangarcia.co",
+        name: "irangarciaj@gmail.com",
+        url: "mailto:irangarciaj@gmail.com",
         icon: Icons.email,
         navbar: true,
       },

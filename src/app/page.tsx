@@ -67,7 +67,7 @@ export default function Page() {
             <div className="space-y-3">
               <h2 className="text-md font-medium">Contact</h2>
               <p className="max-w-[600px] text-muted-foreground">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan nulla. Donec lacinia commodo lacus, a semper turpis efficitur non.
+                {data.contact.section}
               </p>
             </div>
           </BlurFade>
