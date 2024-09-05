@@ -56,7 +56,7 @@ export const data = {
       logoUrl: "/avanti.png",
       start: "April 2020",
       end: "May 2021",
-      description: "Revamped an e-commerce category page for a leading lingerie brand in Brazil, boosting conversion rates, and developed a real-time free shipping bar using React and Sass. Enhanced the onboarding for B2B customers with a personalized sign-up form using React, Apollo GraphQL, and TypeScript.",
+      description: "Revamped an e-commerce category page for a leading lingerie brand in Brazil, boosting conversion rates. Developed free shipping bar using real time information with React and GraphQL. Enhanced the onboarding for B2B customers with a personalized sign-up form using React, GraphQL, and TypeScript.",
     },
   ],
 } as const;
