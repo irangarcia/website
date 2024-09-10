@@ -37,7 +37,7 @@ export default async function BlogPage() {
             >
               <div className="w-full flex flex-col">
                 <p className="font-medium">{post.metadata.title}</p>
-                <p className="h-6 text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {formatDate(post.metadata.publishedAt)}
                 </p>
               </div>
