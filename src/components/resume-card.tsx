@@ -51,7 +51,7 @@ export const ResumeCard = ({
         <div className="flex-grow flex ml-4 gap-y-2 flex-col">
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-medium leading-none text-sm">
+              <strong className="inline-flex items-center justify-center font-medium leading-none text-sm">
                 {title}
                 <ChevronRightIcon
                   className={cn(
@@ -59,7 +59,7 @@ export const ResumeCard = ({
                     isExpanded ? "rotate-90" : "rotate-0"
                   )}
                 />
-              </h3>
+              </strong>
               <div className="text-xs tabular-nums text-muted-foreground text-right">
                 {period}
               </div>
