@@ -33,7 +33,7 @@ export default function Page() {
           <h2 className="text-md font-medium">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-md text-muted-foreground dark:prose-invert">
+          <Markdown className="prose max-w-full text-pretty font-sans text-md text-muted-foreground">
             {data.summary}
           </Markdown>
         </BlurFade>
@@ -66,7 +66,7 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
               <h2 className="text-md font-medium">Contact</h2>
-              <p className="max-w-[600px] text-muted-foreground">
+              <p className="max-w-[600px] prose text-pretty font-sans text-md text-muted-foreground">
                 {data.contact.section}
               </p>
             </div>
