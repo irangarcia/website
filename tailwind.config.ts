@@ -27,6 +27,8 @@ const config = {
             a: {
               fontWeight: 'normal'
             },
+            "code::before": { content: '""' },
+            "code::after": { content: '""' },
           }
         }
       },
