@@ -1,0 +1,264 @@
+---
+title: "Understanding Swift’s Core Concepts Through JavaScript"
+publishedAt: "09-12-2024"
+summary: "A comparative exploration of Swift and JavaScript, focusing on essential concepts and lessons learned."
+---
+
+As a software engineer who's spent a lot of time working with JavaScript and TypeScript, jumping into Swift feels like a mix of the familiar and the new. Swift's strong type system, combined with its emphasis on safety and performance, can be a bit of a paradigm shift. However, many concepts will feel familiar to someone with a JavaScript background. 
+
+In this post, I’ll break down key Swift concepts such as strings, operators, constants, and numbers, while drawing comparisons to JavaScript.
+
+## Constants: Embracing Immutability
+
+In JavaScript, constants are declared using `const`:
+
+```javascript
+const pi = 3.14;
+```
+
+Similarly, Swift has `let` for declaring immutable variables:
+
+```swift
+let pi = 3.14
+```
+
+Once declared, you cannot reassign `pi`, which is exactly how JavaScript constants behave. However, Swift goes a step further: `let` applies not only to simple types like numbers or strings but also to complex types like arrays and dictionaries. Once you declare a collection with `let`, you can’t change the collection itself (i.e., reassign it), but you can still modify its contents:
+
+```swift
+let shoppingList = ["Eggs", "Milk"]
+
+// shoppingList = []   // Error: Cannot reassign 'shoppingList'
+
+shoppingList.append("Bread")  // This is allowed
+```
+
+This distinction is the same as in JavaScript — `const` protects the reference, not the contents of objects or arrays.
+
+## Variables: Mutability with `var`
+
+When you need to create a variable whose value changes, you use `var` in Swift, which is equivalent to `let` in JavaScript or `var` in older versions of JS:
+
+```swift
+var counter = 5
+
+counter += 1 // 6
+```
+
+This is similar to mutable variables in JavaScript:
+
+```javascript
+let counter = 5;
+
+counter += 1;  // 6
+```
+
+## Numbers and Type Safety
+
+JavaScript has a single `number` type for all numeric values (whether integer, float, etc.). In Swift, numbers are more strictly typed. Swift has multiple numeric types such as `Int`, `Double`, and `Float` to distinguish between different kinds of numbers:
+
+```swift
+let wholeNumber: Int = 10
+
+let decimalNumber: Double = 3.14
+```
+
+The biggest difference here is that Swift enforces type safety, meaning it won’t let you mix and match different number types without explicit conversion. This is different from JavaScript, where you can freely perform arithmetic between integers and floats:
+
+```javascript
+let result = 5 + 3.14;  // Allowed in JavaScript
+```
+
+In Swift, you would need to convert the types manually:
+
+```swift
+let result = Double(5) + 3.14  // Must convert Int to Double
+```
+
+## Strings: Value Types and Copy Semantics
+
+Like JavaScript, strings in Swift are immutable. However, Swift treats strings as value types, meaning each assignment or pass creates a copy rather than a reference:
+
+```swift
+var greeting = "Hello"
+
+var anotherGreeting = greeting
+
+anotherGreeting = "Hi"
+
+// `greeting` is still "Hello"
+```
+
+In JavaScript, strings are also immutable, but they are passed by reference:
+
+```javascript
+let greeting = "Hello";
+
+let anotherGreeting = greeting;
+
+anotherGreeting = "Hi";
+
+// `greeting` would still be "Hello" due to immutability, 
+// but it's reference-based rather than copy-based.
+```
+
+**Multiline Strings: Flexibility and Readability**
+
+Swift provides a straightforward way to handle multiline strings using triple quotes (`"""`). This feature enhances readability when dealing with longer blocks of text. Unlike JavaScript, which requires concatenation or backticks for multiline strings, Swift’s approach is more elegant:
+
+```swift
+let multilineString = """
+This is a multiline
+string in Swift.
+You can write across multiple lines easily.
+"""
+```
+
+In JavaScript, you would use template literals with backticks to achieve a similar result:
+
+```javascript
+const multilineString = `This is a multiline
+string in JavaScript.
+It also supports expressions.`;
+```
+
+Swift’s multiline strings also support escape characters and maintain indentation, making it easier to format text blocks in a clean, readable way.
+
+**String Interpolation: Cleaner and Safer**
+
+String interpolation in Swift is both concise and safe. You can embed variables or expressions directly inside strings using `\(expression)`:
+
+```swift
+let name = "John"
+let greeting = "Hello, \(name)!"  // "Hello, John!"
+```
+
+This is similar to template literals in JavaScript:
+
+```javascript
+const name = "John";
+const greeting = `Hello, ${name}!`;  // "Hello, John!"
+```
+
+Swift’s strong type system ensures that you cannot interpolate unsupported types without proper conversion, which reduces the risk of runtime errors.
+
+
+## Operators: Arithmetic and Comparison
+
+Arithmetic operators in Swift behave similarly to JavaScript:
+
+```swift
+let sum = 1 + 2
+
+let concatenated = "Hello, " + "world!"
+```
+
+However, Swift ensures type safety, meaning you can’t accidentally mix types (e.g., `1 + "2"`). In JavaScript, type coercion can lead to surprising results:
+
+```javascript
+1 + "2"; // "12" in JavaScript due to implicit conversion
+```
+
+In Swift, this would throw a compile-time error unless you explicitly cast the types:
+
+```swift
+let result = String(1) + "2"  // "12"
+```
+
+This eliminates bugs caused by implicit type coercion that are common in JavaScript.
+
+
+**Ternary Operator: Concise Conditionals**
+
+The ternary operator in Swift works exactly as it does in JavaScript. It provides a shorthand for conditional expressions:
+
+```swift
+let isEven = (number % 2 == 0) ? "Even" : "Odd"
+```
+
+In JavaScript, this would look the same:
+
+```javascript
+const isEven = (number % 2 === 0) ? "Even" : "Odd";
+```
+
+Both languages use the same syntax and behavior for the ternary operator, making it a familiar feature when transitioning between the two.
+
+**Logical Operators: Familiar Yet Strict**
+
+Logical operators in Swift are similar to those in JavaScript, using `&&` for AND, `||` for OR, and `!` for NOT:
+
+```swift
+let isAdult = age >= 18 && hasID
+```
+
+In JavaScript, it’s the same:
+
+```javascript
+const isAdult = age >= 18 && hasID;
+```
+
+However, Swift does not have truthy or falsy values like JavaScript. In JavaScript, expressions like `0`, `""`, or `null` are evaluated as falsy in conditionals, while in Swift, the condition must be a strict `Bool`.
+
+**Range Operators: Iteration and more**
+
+**Closed range**
+
+In Swift, ranges are a useful feature for iterating over sequences of numbers. These are particularly useful when combined with loops:
+
+```swift
+for index in 1...5 {
+    print(index)  // 1 2 3 4 5
+}
+```
+
+This range behavior is not directly available in JavaScript. You’d typically use a `for` loop or array methods like `map` or `forEach` in JS:
+
+```javascript
+for (let i = 1; i <= 5; i++) {
+    console.log(i);  // 1 2 3 4 5
+}
+```
+
+**Half-open range**
+
+A half-open range in Swift includes the starting value but excludes the ending value. This is especially useful when you want to avoid off-by-one errors:
+
+```swift
+for index in 1..<5 {
+    print(index)  // 1 2 3 4
+}
+```
+
+In JavaScript, you would have to manually adjust the condition to exclude the upper bound:
+
+```javascript
+for (let i = 1; i < 5; i++) {
+    console.log(i);  // 1 2 3 4
+}
+```
+
+**Slicing through ranges**
+
+Swift's ranges also make it easy to slice collections, something that JavaScript handles with array methods like `slice`:
+
+```swift
+let names = ["Anna", "Alex", "Brian", "Jack"]
+
+for name in names[2...] {
+    print(name)  // Brian, Jack
+}
+```
+
+This can be achieved in JavaScript using array methods like slice, but it’s less concise:
+
+```javascript
+const names = ["Anna", "Alex", "Brian", "Jack"];
+
+names.slice(2);  // ["Brian", "Jack"]
+```
+
+---
+
+Exploring Swift has highlighted some interesting similarities with JavaScript, especially when it comes to things like immutability, type safety, and how operators work. Even though Swift has its own unique features and some strict rules about types, a lot of the core ideas feel pretty similar. 
+
+In my next post, I'll be exploring Swift's collection types like arrays, dictionaries, sets, and enums. Stay tuned!
