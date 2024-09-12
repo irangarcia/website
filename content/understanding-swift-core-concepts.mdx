@@ -4,7 +4,7 @@ publishedAt: "09-12-2024"
 summary: "A comparative exploration of Swift and JavaScript, focusing on essential concepts and lessons learned."
 ---
 
-As a software engineer who's spent a lot of time working with JavaScript and TypeScript, jumping into Swift feels like a mix of the familiar and the new. Swift's strong type system, combined with its emphasis on safety and performance, can be a bit of a paradigm shift. However, many concepts will feel familiar to someone with a JavaScript background. 
+As a software engineer who's spent a lot of time working with JavaScript and TypeScript, jumping into Swift feels like a mix of the familiar and the new. Swift's strong type system, combined with its emphasis on safety and performance, can be a bit of a paradigm shift.
 
 In this post, I’ll break down key Swift concepts such as strings, operators, constants, and numbers, while drawing comparisons to JavaScript.
 
@@ -103,7 +103,7 @@ anotherGreeting = "Hi";
 
 **Multiline Strings: Flexibility and Readability**
 
-Swift provides a straightforward way to handle multiline strings using triple quotes (`"""`). This feature enhances readability when dealing with longer blocks of text. Unlike JavaScript, which requires concatenation or backticks for multiline strings, Swift’s approach is more elegant:
+Swift provides a quick method of handling multiline strings by using triple quotes (`"""`). This feature enhances the readability when dealing with longer blocks of text. Unlike JavaScript, which requires concatenation or backticks for multiline strings, Swift’s approach is more elegant:
 
 ```swift
 let multilineString = """
@@ -121,28 +121,28 @@ string in JavaScript.
 It also supports expressions.`;
 ```
 
-Swift’s multiline strings also support escape characters and maintain indentation, making it easier to format text blocks in a clean, readable way.
+Swift’s multiline strings also support escape characters and maintain indentation, making it easier to format text blocks in a readable way.
 
 **String Interpolation: Cleaner and Safer**
 
 String interpolation in Swift is both concise and safe. You can embed variables or expressions directly inside strings using `\(expression)`:
 
 ```swift
-let name = "John"
-let greeting = "Hello, \(name)!"  // "Hello, John!"
+let name = "Iran"
+let greeting = "Hello, \(name)!"  // "Hello, Iran!"
 ```
 
 This is similar to template literals in JavaScript:
 
 ```javascript
-const name = "John";
-const greeting = `Hello, ${name}!`;  // "Hello, John!"
+const name = "Iran";
+const greeting = `Hello, ${name}!`;  // "Hello, Iran!"
 ```
 
 Swift’s strong type system ensures that you cannot interpolate unsupported types without proper conversion, which reduces the risk of runtime errors.
 
 
-## Operators: Arithmetic and Comparison
+## Operators: Arithmetic, Iteration, and Comparison
 
 Arithmetic operators in Swift behave similarly to JavaScript:
 
@@ -167,7 +167,7 @@ let result = String(1) + "2"  // "12"
 This eliminates bugs caused by implicit type coercion that are common in JavaScript.
 
 
-**Ternary Operator: Concise Conditionals**
+**Ternary Operator: Pretty much the same**
 
 The ternary operator in Swift works exactly as it does in JavaScript. It provides a shorthand for conditional expressions:
 
@@ -183,7 +183,7 @@ const isEven = (number % 2 === 0) ? "Even" : "Odd";
 
 Both languages use the same syntax and behavior for the ternary operator, making it a familiar feature when transitioning between the two.
 
-**Logical Operators: Familiar Yet Strict**
+**Logical Operators: Familiar but Strict**
 
 Logical operators in Swift are similar to those in JavaScript, using `&&` for AND, `||` for OR, and `!` for NOT:
 
