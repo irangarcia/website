@@ -1,3 +1,5 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 import Navbar from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { data } from "@/data/resume";
@@ -89,6 +91,8 @@ export default function RootLayout({
         <TooltipProvider delayDuration={0}>
           {children}
           <Navbar />
+          <SpeedInsights />
+          <Analytics />
         </TooltipProvider>
       </body>
     </html>
