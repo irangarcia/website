@@ -91,9 +91,9 @@ export default function RootLayout({
         <TooltipProvider delayDuration={0}>
           {children}
           <Navbar />
-          <SpeedInsights />
-          <Analytics />
         </TooltipProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
