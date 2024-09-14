@@ -1,0 +1,320 @@
+---
+title: "Collection Types in Swift: Arrays, Dictionaries, Sets, and Enumerations"  
+publishedAt: "09-16-2024"  
+summary: "A detailed comparison of Swift and JavaScript’s core collection types — Arrays, Dictionaries, Sets, and Enums — highlighting key similarities and differences, with insights into type safety and functionality."
+---
+
+In the [last article](/blog/understanding-swift-core-concepts), I explored how Swift has some interesting similarities with JavaScript, especially when it comes to immutability, type safety, and operator behavior. Even though Swift has its own unique features and stricter type rules, a lot of the core concepts felt pretty familiar.
+
+In this post, we’re going to explore Swift’s core collection types: Arrays, Dictionaries, Sets, and Enumerations. I’ll compare these with their JavaScript counterparts to see where they overlap and where they differ.
+
+## Arrays: Swift’s Flexible Ordered Collection
+
+If you’ve been working with JavaScript, you’re familiar with arrays. Swift’s arrays serve a similar purpose: they’re ordered collections that allow you to store and access elements by index.
+
+**Declaration and Initialization**
+
+In Swift, arrays are strongly typed. You declare an array using square brackets, specifying the type of elements it holds. You can initialize an array in several ways:
+
+```swift
+// Standard initialization with literal values
+let shoppingList: [String] = ["Milk", "Eggs", "Bread"]
+
+// Empty array 
+let emptyList: [String] = []
+
+// Using the Array() initializer
+let anotherList = Array<String>(["Apples", "Oranges"])
+```
+
+This is similar to:
+
+```javascript
+// Standard initialization with literal values
+const shoppingList = ["Milk", "Eggs", "Bread"];
+
+// Empty array
+const emptyList = [];
+
+// Using Array constructor
+const anotherList = Array("Apples", "Oranges");
+```
+
+One big difference: Swift arrays require that all elements be of the same type. JavaScript arrays can mix types freely, though this flexibility can lead to bugs.
+
+**Common methods**
+
+Swift arrays come with a range of useful methods. Some are very similar to JavaScript’s array methods, making the transition straightforward.
+
+**Append**: Adds an element to the end of the array.
+  
+  ```swift
+  shoppingList.append("Butter") // ["Milk", "Eggs", "Bread", "Butter"]
+  ```
+
+  Equivalent in JavaScript:
+
+  ```javascript
+  shoppingList.push("Butter"); // ["Milk", "Eggs", "Bread", "Butter"]
+  ```
+
+**Remove**: Removes an element at a specific index.
+  
+  ```swift
+  shoppingList.remove(at: 1) // Removes "Eggs"
+  ```
+
+  In JavaScript:
+
+  ```javascript
+  shoppingList.splice(1, 1);  // Removes "Eggs"
+  ```
+
+**Contains**: Checks if the array contains a specific value.
+  
+  ```swift
+  shoppingList.contains("Milk")  // true
+  ```
+
+  JavaScript's version:
+
+  ```javascript
+  shoppingList.includes("Milk");  // true
+  ```
+
+**Iterating over**
+
+In Swift, iterating over arrays is simple, and it’s very similar to JavaScript’s `for...of` loop:
+
+```swift
+for item in shoppingList {
+    print(item)
+}
+```
+
+This is like:
+
+```javascript
+for (const item of shoppingList) {
+    console.log(item);
+}
+```
+
+Swift also supports higher-order functions like `map`, `filter`, and `reduce`, just like JavaScript.
+
+## Dictionaries: Key-Value Storage with Strong Typing
+
+Dictionaries in Swift are similar to objects in JavaScript, but they’re more strictly typed. A dictionary in Swift maps keys to values, where both the keys and values are type-safe.
+
+**Declaration and Initialization**
+
+Here’s how you define a dictionary in Swift:
+
+```swift
+let airportCodes: [String: String] = ["BER": "Berlin Brandenburg", "GRU": "Guarulhos"]
+```
+
+The closest equivalent in JavaScript would be an object:
+
+```javascript
+const airportCodes = {
+    BER: "Berlin Brandenburg",
+    GRU: "Guarulhos"
+};
+```
+
+**Common methods**
+
+Swift dictionaries come with a set of useful methods:
+
+**Accessing Values**: You can access a value using its key:
+
+  ```swift
+  let city = airportCodes["BER"]  // Optional("Berlin Brandenburg")
+  ```
+
+  In JavaScript, you’d simply access the property:
+
+  ```javascript
+  const city = airportCodes["BER"];  // "Berlin Brandenburg"
+  ```
+
+  Swift returns an optional value for dictionary lookups, which requires handling missing keys explicitly. JavaScript simply returns undefined for non-existent keys.
+
+
+**Updating Values**: To update or add a key-value pair, you can use the subscript syntax:
+
+  ```swift
+  airportCodes["JFK"] = "New York"
+
+  // Or
+  airportCodes.updateValue("New York", forKey: "JFK")
+  ```
+
+  Equivalent in JavaScript:
+
+  ```javascript
+  airportCodes["JFK"] = "New York";
+  ```
+
+**Removing Values**: To remove a key-value pair:
+
+  ```swift
+  airportCodes.removeValue(forKey: "LAX")
+  ```
+
+  In JavaScript:
+
+  ```javascript
+  delete airportCodes["LAX"];
+  ```
+
+**Iterating over**
+
+In Swift, you can iterate over both the keys and values of a dictionary using `for`:
+
+```swift
+for (code, city) in airportCodes {
+    print("\(code): \(city)")
+}
+```
+
+This is similar to iterating over object properties in JavaScript:
+
+```javascript
+for (const [code, city] of Object.entries(airportCodes)) {
+    console.log(`${code}: ${city}`);
+}
+```
+
+While JavaScript requires this additional method (`Object.entries`) for the iteration, Swift offers a built-in solution.
+
+## Sets: Unique Collections for Fast Membership Checking
+
+Swift sets are like JavaScript’s `Set` objects. They store unique values and provide fast lookups.
+
+**Declaration and Initialization**
+
+To create a set in Swift:
+
+```swift
+let ingredients: Set<String> = ["Sugar", "Salt", "Flour"]
+```
+
+Similarly in JavaScript:
+
+```javascript
+const ingredients = new Set(["Sugar", "Salt", "Flour"]);
+```
+
+One key difference is that Swift’s set operations (`union`, `intersection`, etc.) are built-in, whereas JavaScript requires a bit more manual work.
+
+**Union**: Combines two sets, keeping all unique values from both sets.
+
+```swift
+let moreIngredients: Set<String> = ["Butter", "Salt"]
+let allIngredients = ingredients.union(moreIngredients) // ["Sugar", "Salt", "Flour", "Butter"]
+```
+
+In JavaScript, you would use the `Set` constructor and spread syntax to achieve the same:
+
+```javascript
+const moreIngredients = new Set(["Butter", "Salt"]);
+const allIngredients = new Set([...ingredients, ...moreIngredients]); // ["Sugar", "Salt", "Flour", "Butter"]
+```
+
+**Intersection**: Finds the common values between two sets.
+
+```swift
+let commonIngredients = ingredients.intersection(moreIngredients) // ["Salt"]
+```
+
+In JavaScript, this requires filtering:
+
+```javascript
+const commonIngredients = new Set([...ingredients].filter(item => moreIngredients.has(item))); // {"Salt"}
+```
+
+## Enums: Defining a Set of Related Values
+
+Swift’s enums are far more powerful than JavaScript’s, especially since JavaScript doesn’t have built-in support for enums (though you can mimic them with objects or TypeScript enums).
+
+**Declaration and Raw Values**
+
+You can define an enum in Swift with associated raw values or without them:
+
+```swift
+enum Direction {
+    case north, south, east, west
+}
+```
+
+If you want raw values:
+
+```swift
+enum CompassPoint: String {
+    case north = "N"
+    case south = "S"
+    case east = "E"
+    case west = "W"
+}
+```
+
+In TypeScript, you would do:
+
+```typescript
+enum CompassPoint {
+    North = "N",
+    South = "S",
+    East = "E",
+    West = "W"
+}
+```
+
+**Reassigning Enum Values**
+
+You can easily reassign a variable to another enum case:
+
+```swift
+var currentDirection = Direction.north
+currentDirection = .east
+```
+
+**Switch Statements**
+
+Swift’s `switch` statements are powerful when working with enums. They require handling all cases unless you use a `default` case:
+
+```swift
+switch currentDirection {
+case .north:
+    print("Heading north")
+case .south:
+    print("Heading south")
+case .east:
+    print("Heading east")
+case .west:
+    print("Heading west")
+}
+```
+
+**Iterating Over Cases**
+
+Swift allows you to iterate over all cases of an enum if it conforms to the `CaseIterable` protocol:
+
+```swift
+enum Beverage: CaseIterable {
+    case coffee, tea, juice
+}
+
+for drink in Beverage.allCases {
+    print(drink)
+}
+```
+
+These features are not directly available in JavaScript, though you can simulate it with arrays or objects.
+
+---
+
+In summary, Swift’s Arrays and Dictionaries are pretty similar to JavaScript’s, but with the perk of stricter type safety. Swift Sets bring some cool advantages like fast membership checks and built-in operations that JavaScript makes you work for. Plus, Swift Enums are a step up from what you get in JavaScript, offering a handy way to handle fixed sets of values with more control.
+
+In the upcoming post, I’ll dive into Swift’s optionals, nil coalescing, and optional chaining. I’ll compare these features with JavaScript’s handling of undefined and null values and explore how optionals can enhance code safety and clarity. Keep an eye out!
