@@ -8,7 +8,7 @@ In the [last article](/blog/understanding-swift-core-concepts), I explored how S
 
 In this post, we’re going to explore Swift’s core collection types: Arrays, Dictionaries, Sets, and Enumerations. I’ll compare these with their JavaScript counterparts to see where they overlap and where they differ.
 
-## Arrays: Swift’s Flexible Ordered Collection
+## Arrays: Ordered Collections
 
 If you’ve been working with JavaScript, you’re familiar with arrays. Swift’s arrays serve a similar purpose: they’re ordered collections that allow you to store and access elements by index.
 
@@ -42,7 +42,7 @@ const anotherList = Array("Apples", "Oranges");
 
 One big difference: Swift arrays require that all elements be of the same type. JavaScript arrays can mix types freely, though this flexibility can lead to bugs.
 
-**Common methods**
+**Common Methods**
 
 Swift arrays come with a range of useful methods. Some are very similar to JavaScript’s array methods, making the transition straightforward.
 
@@ -82,7 +82,7 @@ Swift arrays come with a range of useful methods. Some are very similar to JavaS
   shoppingList.includes("Milk");  // true
   ```
 
-**Iterating over**
+**Iterating Over**
 
 In Swift, iterating over arrays is simple, and it’s very similar to JavaScript’s `for...of` loop:
 
@@ -123,7 +123,7 @@ const airportCodes = {
 };
 ```
 
-**Common methods**
+**Common Methods**
 
 Swift dictionaries come with a set of useful methods:
 
@@ -139,8 +139,7 @@ Swift dictionaries come with a set of useful methods:
   const city = airportCodes["BER"];  // "Berlin Brandenburg"
   ```
 
-  Swift returns an optional value for dictionary lookups, which requires handling missing keys explicitly. JavaScript simply returns undefined for non-existent keys.
-
+  Swift returns an optional value for dictionary lookups, which requires handling missing keys explicitly. JavaScript simply returns `undefined` for non-existent keys.
 
 **Updating Values**: To update or add a key-value pair, you can use the subscript syntax:
 
@@ -169,7 +168,7 @@ Swift dictionaries come with a set of useful methods:
   delete airportCodes["LAX"];
   ```
 
-**Iterating over**
+**Iterating Over**
 
 In Swift, you can iterate over both the keys and values of a dictionary using `for`:
 
@@ -187,9 +186,9 @@ for (const [code, city] of Object.entries(airportCodes)) {
 }
 ```
 
-While JavaScript requires this additional method (`Object.entries`) for the iteration, Swift offers a built-in solution.
+While JavaScript requires this additional method (`Object.entries`) for iteration, Swift offers a built-in solution.
 
-## Sets: Unique Collections for Fast Membership Checking
+## Sets: Unique Collections for Fast Checking
 
 Swift sets are like JavaScript’s `Set` objects. They store unique values and provide fast lookups.
 
@@ -207,7 +206,7 @@ Similarly in JavaScript:
 const ingredients = new Set(["Sugar", "Salt", "Flour"]);
 ```
 
-One key difference is that Swift’s set operations (`union`, `intersection`, etc.) are built-in, whereas JavaScript requires a bit more manual work.
+One key difference is that Swift’s set operations (`union`, `intersection`, etc.) are built-in, whereas JavaScript requires a bit more manual work. Additionally, both Swift and JavaScript sets do not maintain the order of their elements.
 
 **Union**: Combines two sets, keeping all unique values from both sets.
 
@@ -235,7 +234,7 @@ In JavaScript, this requires filtering:
 const commonIngredients = new Set([...ingredients].filter(item => moreIngredients.has(item))); // {"Salt"}
 ```
 
-## Enums: Defining a Set of Related Values
+## Enums: A Set of Related Values
 
 Swift’s enums are far more powerful than JavaScript’s, especially since JavaScript doesn’t have built-in support for enums (though you can mimic them with objects or TypeScript enums).
 
