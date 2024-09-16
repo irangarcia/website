@@ -6,6 +6,7 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import { cache } from 'react'
 import rehypeExternalLinks from "rehype-external-links"
 
 function getMDXFiles(dir: string) {
@@ -30,7 +31,7 @@ export async function markdownToHTML(markdown: string) {
   return p.toString();
 }
 
-export async function getPost(slug: string) {
+export const getPost = cache(async (slug: string) => {
   const filePath = path.join("content", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
@@ -40,7 +41,7 @@ export async function getPost(slug: string) {
     metadata,
     slug,
   };
-}
+});
 
 async function getAllPosts(dir: string) {
   let mdxFiles = getMDXFiles(dir);
