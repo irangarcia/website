@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -6,20 +6,18 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import rehypeExternalLinks from "rehype-external-links";
-import {LRUCache} from "lru-cache";
-
-const cache = new LRUCache({ max: 100 }); // Cache up to 100 posts for 1 hour
+import { cache } from 'react'
+import rehypeExternalLinks from "rehype-external-links"
 
 function getMDXFiles(dir: string) {
-  return fs.readdir(dir).then((files) => files.filter((file) => path.extname(file) === ".mdx"));
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
-async function markdownToHTML(markdown: string) {
+export async function markdownToHTML(markdown: string) {
   const p = await unified()
     .use(remarkParse)
     .use(remarkRehype)
-    .use(rehypeExternalLinks, { target: "_blank", rel: ["noreferrer", "noopener"] })
+    .use(rehypeExternalLinks, {target: "_blank", rel: ["noreferrer", "noopener"]})
     .use(rehypePrettyCode, {
       theme: {
         light: "github-light",
@@ -33,34 +31,33 @@ async function markdownToHTML(markdown: string) {
   return p.toString();
 }
 
-export async function getPost(slug: string) {
-  if (cache.has(slug)) {
-    return cache.get(slug);
-  }
-
+export const getPost = cache(async (slug: string) => {
   const filePath = path.join("content", `${slug}.mdx`);
-  const source = await fs.readFile(filePath, "utf-8");
+  let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
   const content = await markdownToHTML(rawContent);
-
-  // Store the result in the cache
-  const post = { source: content, metadata, slug };
-  cache.set(slug, post);
-
-  return post;
-}
+  return {
+    source: content,
+    metadata,
+    slug,
+  };
+});
 
 async function getAllPosts(dir: string) {
-  const mdxFiles = await getMDXFiles(dir);
+  let mdxFiles = getMDXFiles(dir);
   return Promise.all(
     mdxFiles.map(async (file) => {
-      const slug = path.basename(file, path.extname(file));
-      return getPost(slug); // Using cached version of getPost
+      let slug = path.basename(file, path.extname(file));
+      let { metadata, source } = await getPost(slug);
+      return {
+        metadata,
+        slug,
+        source,
+      };
     })
   );
 }
 
 export async function getBlogPosts() {
-  const contentDir = path.join(process.cwd(), "content");
-  return getAllPosts(contentDir);
+  return getAllPosts(path.join(process.cwd(), "content"));
 }
