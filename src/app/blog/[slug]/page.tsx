@@ -1,5 +1,5 @@
 import BlurFade from "@/components/magicui/blur-fade";
-import { getPost } from "@/data/blog";
+import { getBlogPosts, getPost } from "@/data/blog";
 import { data } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -8,6 +8,13 @@ import { Suspense } from "react";
 
 const BLUR_FADE_DELAY = 0.04;
 
+export async function generateStaticParams() {
+  const posts = await getBlogPosts()
+ 
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
 export async function generateMetadata({
   params,
 }: {
