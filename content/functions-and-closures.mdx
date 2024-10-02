@@ -1,0 +1,242 @@
+---
+title: "Swift vs JavaScript: Mastering Functions, Error Handling, and Closures"
+publishedAt: "10-02-2024"  
+summary: "Check how Swift and JavaScript handle functions, error treatment, and closures."
+---
+
+As we dive deeper into the shift from JavaScript to Swift, let’s take a look at three key concepts: functions, error handling, and closures. These are important in both languages, but Swift adds its own twists that make your code safer and easier to read.
+
+## Functions: Familiar with Swift Enhancements
+
+Functions in Swift will feel familiar to JavaScript developers, but with some added type safety and syntactic sugar.
+
+**Function Declaration**
+
+In Swift, function declarations are more explicit about parameter types and return values:
+
+```swift
+func greet(name: String) -> String {
+    return "Hello, \(name)!"
+}
+```
+
+Compare this to JavaScript:
+
+```jsx
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+```
+
+Swift's approach eliminates ambiguity about what the function expects and returns.
+
+**Default Parameter Values**
+
+Swift, like JavaScript, supports default parameter values:
+
+```swift
+func greet(name: String = "World") -> String {
+    return "Hello, \(name)!"
+}
+
+greet() // "Hello, World!"
+
+greet(name: "Swift") // "Hello, Swift!"
+```
+
+This is similar to JavaScript's approach:
+
+```jsx
+function greet(name = "World") {
+    return `Hello, ${name}!`;
+}
+
+greet(); // "Hello, World!"
+
+greet("JavaScript"); // "Hello, JavaScript!"
+```
+
+**Omitting Arguments**
+
+You can also omit argument using an underscore:
+
+```swift
+func greet(_ name: String) -> String {
+    return "Hello, \(name)!"
+}
+
+greet("Swift") // "Hello, Swift!"
+```
+
+**Argument Labels**
+
+Swift introduces the concept of argument labels, which can make function calls more readable:
+
+```swift
+func greet(to name: String) -> String {
+    return "Hello, \(name)!"
+}
+
+greet(to: "Swift") // "Hello, Swift!"
+```
+
+This feature doesn't exist in JavaScript, where function calls always use the parameter names directly.
+
+**Variadic Functions**
+
+Swift, like JavaScript, supports variadic functions:
+
+```swift
+func greet(name: String, friends: String...) -> String {
+    return "Hello, \(name) and \(friends.joined(separator: ", "))!"
+}
+
+greet(name: "Swift", friends: "JavaScript", "TypeScript")
+// "Hello, Swift and JavaScript, TypeScript!"
+```
+
+This is similar to JavaScript's rest parameters:
+
+```jsx
+function greet(name, ...friends) {
+    return `Hello, ${name} and ${friends.join(", ")}!`;
+}
+
+greet("JavaScript", "TypeScript", "Swift");
+// "Hello, JavaScript and TypeScript, Swift!"
+```
+
+## Error Handling: Safer and More Structured
+
+Swift's error handling is more structured compared to JavaScript's try-catch mechanism, providing better control and clarity.
+
+**Defining Errors**
+
+In Swift, you typically define errors as an enum that conforms to the Error protocol:
+
+```swift
+enum NetworkError: Error {
+    case badURL
+    case noData
+    case decodingError
+}
+```
+
+JavaScript doesn't have a built-in way to define custom error types, though you can create Error subclasses:
+
+```jsx
+class NetworkError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "NetworkError";
+    }
+}
+```
+
+**Throwing and Catching Errors**
+
+Swift uses the `throws` keyword to indicate a function can throw an error:
+
+```swift
+func fetchData(from url: String) throws -> Data {
+    guard let url = URL(string: url) else {
+        throw NetworkError.badURL
+    }
+    // Fetch data...
+}
+
+do {
+    let data = try fetchData(from: "https://api.example.com")
+    // Use data...
+} catch NetworkError.badURL {
+    print("Invalid URL")
+} catch {
+    print("An error occurred: \(error)")
+}
+```
+
+This is more explicit than JavaScript's approach:
+
+```jsx
+async function fetchData(url) {
+    if (!url.startsWith('http')) {
+        throw new NetworkError("Invalid URL");
+    }
+    // Fetch data...
+}
+
+try {
+    const data = await fetchData("https://api.example.com");
+    // Use data...
+} catch (error) {
+    if (error instanceof NetworkError) {
+        console.log("Network error:", error.message);
+    } else {
+        console.log("An error occurred:", error);
+    }
+}
+```
+
+## Closures: Powerful and Concise
+
+Closures in Swift are similar to JavaScript's arrow functions but with some additional features.
+
+**Basic Syntax**
+
+Swift's closure syntax might look a bit different at first:
+
+```swift
+let multiply = { (a: Int, b: Int) -> Int in
+    return a * b
+}
+```
+
+This is equivalent to JavaScript's arrow function:
+
+```jsx
+const multiply = (a, b) => a * b;
+```
+
+**Shorthand Argument Names**
+
+Swift provides shorthand argument names for closures, making them even more concise:
+
+```swift
+let numbers = [1, 2, 3, 4, 5]
+let squared = numbers.map { $0 * $0 }
+```
+
+While JavaScript doesn't have this feature, you can achieve similar conciseness with arrow functions:
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+const squared = numbers.map(n => n * n);
+```
+
+**Trailing Closures**
+
+Swift has a special syntax for functions that take a closure as their last argument:
+
+```swift
+func performOperation(_ operation: (Int, Int) -> Int, on a: Int, and b: Int) -> Int {
+    return operation(a, b)
+}
+
+let result = performOperation(on: 5, and: 3) { $0 + $1 }
+```
+
+While JavaScript doesn't have an exact equivalent, you can achieve similar readability with higher-order functions:
+
+```jsx
+function performOperation(operation, a, b) {
+    return operation(a, b);
+}
+
+const result = performOperation((a, b) => a + b, 5, 3);
+```
+
+---
+
+As explored, Swift enhances many of the familiar concepts from JavaScript by introducing stronger type safety, clearer syntax, and more structured error handling. These features not only improve code readability but also reduce the likelihood of runtime errors.
+
+In the next post, I'll explore Swift's Structures and Classes and how they compare to JavaScript's. Hope to see you here.
