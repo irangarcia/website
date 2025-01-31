@@ -2,7 +2,9 @@ import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts, getPost } from "@/data/blog";
 import { data } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
+import { MoveUpLeft } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
@@ -39,7 +41,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${data.url}/blog/${post.slug}`,
+      url: `${data.url}/writing/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -84,7 +86,7 @@ export default async function Blog({
             image: post.metadata.image
               ? `${data.url}${post.metadata.image}`
               : `${data.url}/api/og?title=${post.metadata.title}`,
-            url: `${data.url}/blog/${post.slug}`,
+            url: `${data.url}/writing/${post.slug}`,
             author: {
               "@type": "Person",
               name: data.name,
@@ -92,13 +94,17 @@ export default async function Blog({
           }),
         }}
       />
-      <BlurFade delay={BLUR_FADE_DELAY}>
+      <BlurFade delay={BLUR_FADE_DELAY} className="w-fit flex flex-col gap-2">
+        <Link href="/writing" className="text-xs flex items-center gap-1 text-muted-foreground">
+          <MoveUpLeft className="w-3 h-3" />
+          Writing 
+        </Link>
         <h1 className="text-lg font-medium max-w-[650px]">
           {post.metadata.title}
         </h1>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 3}>
-        <div className="flex justify-between items-center mb-8 text-sm max-w-[650px]">
+        <div className="flex justify-between items-center mb-8 text-sm">
           <Suspense fallback={<p className="h-5" />}>
             <p className="text-md text-neutral-600">
               {formatDate(post.metadata.publishedAt)}
@@ -110,7 +116,7 @@ export default async function Blog({
         <article
           className="prose text-muted-foreground"
           dangerouslySetInnerHTML={{ __html: post.source }}
-        ></article>
+        />
       </BlurFade>
     </section>
   );

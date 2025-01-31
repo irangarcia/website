@@ -1,6 +1,5 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-import Navbar from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { data } from "@/data/resume";
 import { cn } from "@/lib/utils";
@@ -84,13 +83,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "mx-auto max-w-[692px] mb-8 overflow-x-hidden px-6 py-12 font-sans antialiased md:overflow-x-visible md:py-16",
+          "mx-auto max-w-xl overflow-x-hidden px-6 py-12 font-sans antialiased md:overflow-x-visible md:py-16",
           fontSans.variable
         )}
       >
         <TooltipProvider delayDuration={0}>
           {children}
-          <Navbar />
         </TooltipProvider>
         <SpeedInsights />
         <Analytics />

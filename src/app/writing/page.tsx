@@ -1,10 +1,11 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 import { formatDate } from "@/lib/utils";
+import { ArrowLeftIcon, MoveUpLeft } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Blog",
+  title: "Writing",
   description: "My thoughts on software development, life, and more.",
 };
 
@@ -15,10 +16,12 @@ export default async function BlogPage() {
 
   return (
     <section>
-      <BlurFade delay={BLUR_FADE_DELAY} className="w-fit">
-        <Link href="/blog">
-          <h1 className="text-lg font-medium mb-8">Blog</h1>
+      <BlurFade delay={BLUR_FADE_DELAY} className="w-fit flex flex-col gap-2">
+        <Link href="/" className="text-xs flex items-center gap-1 text-muted-foreground">
+          <MoveUpLeft className="w-3 h-3" />
+          Home
         </Link>
+        <h1 className="text-lg font-medium mb-8">Writing</h1>
       </BlurFade>
       {posts
         .sort((a, b) => {
@@ -32,8 +35,8 @@ export default async function BlogPage() {
         .map((post, id) => (
           <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
             <Link
-              className="flex rounded-md flex-col space-y-1 mb-4 hover:bg-[#F5F4F4] focus:bg-[#F5F4F4] -mx-3 px-3 py-3"
-              href={`/blog/${post.slug}`}
+              className="flex rounded-lg flex-col space-y-1 mb-4 hover:bg-[#F5F4F4] focus:bg-[#F5F4F4] -mx-3 p-3"
+              href={`/writing/${post.slug}`}
             >
               <div className="w-full flex flex-col">
                 <p className="font-medium">{post.metadata.title}</p>
