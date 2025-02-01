@@ -11,7 +11,7 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
   return (
     <main className="flex flex-col space-y-8">
-      <section id="hero">
+      <section id="hero max-w-lg">
         <div className="w-full">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1">
@@ -27,11 +27,11 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Link href="/writing" className="flex text-muted-foreground w-fit items-center gap-1 ">
+              <Link href="/writing" className="text-gray-400 flex text-muted-foreground w-fit items-center gap-1 ">
                 <span className="text-md">
                   Writing
                 </span>
-                <MoveUpRight className="text-gray-400 w-4 h-4" />
+                <MoveUpRight strokeWidth={1.5} className="w-4 h-4" />
               </Link>
             </BlurFade>
           </div>
@@ -42,7 +42,7 @@ export default function Page() {
           <h2 className="text-md font-medium">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-md text-muted-foreground">
+          <Markdown className="max-w-lg prose text-pretty font-sans text-md text-muted-foreground">
             {data.summary}
           </Markdown>
         </BlurFade>

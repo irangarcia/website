@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       {
         width: 1200,
         height: 630,
-        url: '/og-image.png',
+        url: '/og-image-test.png',
         alt: 'Text containing: Iran Garcia, Software Engineer.',
       }
     ],

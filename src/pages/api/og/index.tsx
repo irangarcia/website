@@ -3,12 +3,13 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const config = {
   runtime: 'edge',
+  
 };
 
 export default async function handler(request: NextRequest): Promise<ImageResponse> {
   try {
     const { searchParams } = request.nextUrl;
-    const fallbackImage = `${new URL(request.url).origin}/og-image.png`
+    const fallbackImage = `${new URL(request.url).origin}/og-image-test.png`
     const title = searchParams.get('title');
     
     if (title == null || title === '') {
@@ -62,7 +63,7 @@ export default async function handler(request: NextRequest): Promise<ImageRespon
       },
     );
   } catch (error) {
-    const fallbackImage = `${new URL(request.url).origin}/og-image.png`
+    const fallbackImage = `${new URL(request.url).origin}/og-image-test.png`
 
     return NextResponse.redirect(fallbackImage, { status: 307 });
   }
