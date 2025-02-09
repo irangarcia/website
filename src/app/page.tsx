@@ -76,7 +76,7 @@ export default function Page() {
             <div className="space-y-3">
               <h2 className="text-md font-medium">Contact</h2>
               <p className="prose text-pretty font-sans text-md text-muted-foreground">
-                Send me a message on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="underline">LinkedIn</a>, check out my work on <a href="https://github.com/irangarcia" target="_blank" className="underline">GitHub</a>, or reach out via <a href="mailto:irangarciaj@gmail.com" className="underline">email</a>.  Looking forward to hearing from you.
+                Send me a message on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="underline">LinkedIn</a>, check out my work on <a href="https://github.com/irangarcia" target="_blank" className="underline">GitHub</a>, or reach out via <a href="mailto:hello@irangarcia.co" className="underline">email</a>.  Looking forward to hearing from you.
               </p>
             </div>
           </BlurFade>
