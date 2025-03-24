@@ -5,7 +5,7 @@ export const data = {
   name: "Iran Garcia",
   url: "https://irangarcia.co",
   description: "Software Engineer",
-  summary: "Dedicated to creating user interfaces that not only look great but also feel effortless to use. I focus on making every interaction smooth and ensuring every feature is accessible. From fluid navigation to microinteractions, my goal is to create experiences that feel natural and enjoyable for everyone.",
+  summary: "Focused on building products that balance performance, design, and user delight.",
   work: [
     {
       company: "Trafilea",

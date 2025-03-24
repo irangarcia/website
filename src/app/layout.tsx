@@ -4,15 +4,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { data } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import DarkIcon from "./favicon-dark.ico";
 import LightIcon from "./favicon-light.ico";
 import "./globals.css";
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(data.url),
@@ -84,7 +80,8 @@ export default function RootLayout({
       <body
         className={cn(
           "mx-auto max-w-xl overflow-x-hidden px-6 py-12 font-sans antialiased md:overflow-x-visible md:py-16",
-          fontSans.variable
+          GeistSans.variable,
+          GeistMono.variable
         )}
       >
         <TooltipProvider delayDuration={0}>

@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const config = {
   runtime: 'edge',
-  
 };
 
 export default async function handler(request: NextRequest): Promise<ImageResponse> {

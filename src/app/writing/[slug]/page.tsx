@@ -2,7 +2,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts, getPost } from "@/data/blog";
 import { data } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
-import { MoveUpLeft } from "lucide-react";
+import { Undo2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -96,7 +96,7 @@ export default async function Blog({
       />
       <BlurFade delay={BLUR_FADE_DELAY} className="w-fit flex flex-col gap-2">
         <Link href="/writing" className="text-xs flex items-center gap-1 text-muted-foreground">
-          <MoveUpLeft className="w-3 h-3" />
+          <Undo2 className="w-3 h-3" />
           Writing 
         </Link>
         <h1 className="text-lg font-medium max-w-[650px]">

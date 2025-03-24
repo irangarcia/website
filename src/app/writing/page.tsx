@@ -1,7 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 import { formatDate } from "@/lib/utils";
-import { ArrowLeftIcon, MoveUpLeft } from "lucide-react";
+import { Undo2 } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default async function BlogPage() {
     <section>
       <BlurFade delay={BLUR_FADE_DELAY} className="w-fit flex flex-col gap-2">
         <Link href="/" className="text-xs flex items-center gap-1 text-muted-foreground">
-          <MoveUpLeft className="w-3 h-3" />
+          <Undo2 className="w-3 h-3" />
           Home
         </Link>
         <h1 className="text-lg font-medium mb-8">Writing</h1>

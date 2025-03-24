@@ -4,7 +4,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { data } from "@/data/resume";
 import Markdown from "react-markdown";
 import Link from "next/link";
-import { MoveUpRight } from "lucide-react";
+import { Redo2 } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -27,11 +27,11 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Link href="/writing" className="text-gray-400 flex text-muted-foreground w-fit items-center gap-1 ">
+              <Link href="/writing" className="text-gray-400 text-sm flex text-muted-foreground w-fit items-center gap-1 ">
                 <span className="text-md">
                   Writing
                 </span>
-                <MoveUpRight strokeWidth={1.5} className="w-4 h-4" />
+                <Redo2 strokeWidth={1.5} className="w-3 h-3" />
               </Link>
             </BlurFade>
           </div>
@@ -76,7 +76,7 @@ export default function Page() {
             <div className="space-y-3">
               <h2 className="text-md font-medium">Contact</h2>
               <p className="prose text-pretty font-sans text-md text-muted-foreground">
-                Send me a message on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="underline">LinkedIn</a>, check out my work on <a href="https://github.com/irangarcia" target="_blank" className="underline">GitHub</a>, or reach out via <a href="mailto:hello@irangarcia.co" className="underline">email</a>.  Looking forward to hearing from you.
+                Send me a message on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="text-primary hover:underline not-prose">LinkedIn</a>, check out my work on <a href="https://github.com/irangarcia" target="_blank" className="text-primary hover:underline not-prose">GitHub</a>, reach out via <a href="mailto:hello@irangarcia.co" className="text-primary hover:underline not-prose">email</a> or follow me on <a href="https://x.com/irangarci4" target="_blank" className="text-primary hover:underline not-prose">𝕏</a>.  Looking forward to hearing from you.
               </p>
             </div>
           </BlurFade>
