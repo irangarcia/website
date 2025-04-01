@@ -7,6 +7,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ANIMATION_VARIANTS, BOUNCE_VARIANTS } from "./constants";
 import { IncomingCall } from "./incoming-call";
 import { Music } from "./music";
+import { BellIcon, MinusIcon, MusicIcon, PhoneIcon, TimerIcon } from "lucide-react";
+
+const icons = {
+  idle: <MinusIcon />,
+  ring: <BellIcon />,
+  timer: <TimerIcon />,
+  call: <PhoneIcon />,
+  music: <MusicIcon />,
+}
 
 export const DynamicIsland = () => {
   const [view, setView] = useState("timer");
@@ -29,18 +38,18 @@ export const DynamicIsland = () => {
 
   return (
     <div>
-      <div className="flex flex-wrap w-full justify-center gap-4 mb-4">
+      <div className="flex flex-wrap w-full justify-center gap-4 mb-4 mt-12">
         {["idle", "ring", "timer", "call", "music"].map((v) => (
           <button
             type="button"
-            className="rounded-full capitalize w-32 h-10 bg-white px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300/50 hover:bg-gray-50"
+            className="rounded-full cursor-pointer flex items-center justify-center w-10 h-10 bg-gray-900/50 transition-colors hover:bg-gray-900/60 duration-200 px-2.5 py-1.5 text-sm font-medium text-white shadow-sm"
             onClick={() => {
               setView(v);
               setVariantKey(`${view}-${v}`);
             }}
             key={v}
           >
-            {v}
+            {icons[v as keyof typeof icons]}
           </button>
         ))}
       </div>
