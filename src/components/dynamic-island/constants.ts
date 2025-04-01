@@ -1,4 +1,3 @@
-
 export const ANIMATION_VARIANTS = {
     "ring-idle": {
         scale: 0.9,

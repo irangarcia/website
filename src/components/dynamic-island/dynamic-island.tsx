@@ -28,8 +28,8 @@ export const DynamicIsland = () => {
   }, [view]);
 
   return (
-    <div className="h-[200px]">
-      <div className="flex w-full justify-center gap-4 mb-4">
+    <div>
+      <div className="flex flex-wrap w-full justify-center gap-4 mb-4">
         {["idle", "ring", "timer", "call", "music"].map((v) => (
           <button
             type="button"
