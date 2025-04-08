@@ -4,7 +4,7 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const data = {
   name: "Iran Garcia",
   url: "https://irangarcia.co",
-  description: "Software Engineer",
+  description: "Design Engineer",
   summary: "Focused on building products that balance performance, design, and user delight.",
   work: [
     {
