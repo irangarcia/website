@@ -81,7 +81,7 @@ export default function Page() {
                 url={work.url}
                 period={`${work.start} - ${work.end}`}
               /> */}
-                <li className="flex flex-col sm:flex-row items-baseline gap-1 md:gap-8">
+                <li className="flex flex-col sm:flex-row items-baseline gap-1 sm:gap-8">
                   <div className="text-[#999999] text-sm">
                     {`${work.start} — ${work.end}`}
                   </div>
