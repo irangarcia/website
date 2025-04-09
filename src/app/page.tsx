@@ -8,13 +8,11 @@ import Markdown from "react-markdown";
 import Link from "next/link";
 import { Redo2 } from "lucide-react";
 import { InlineCopyCode } from "@/components/inline-copy-code";
-import { useRef } from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const writingIconRef = useRef<SquarePenIconHandle>(null);
 
   return (
     <main className="flex flex-col space-y-8">
