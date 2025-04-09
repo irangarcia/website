@@ -1,5 +1,3 @@
-"use client"
-
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ResumeCard } from "@/components/resume-card";
@@ -8,68 +6,59 @@ import Markdown from "react-markdown";
 import Link from "next/link";
 import { Redo2 } from "lucide-react";
 import { InlineCopyCode } from "@/components/inline-copy-code";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-
   return (
     <main className="flex flex-col space-y-8">
       <section id="hero max-w-lg">
         <div className="w-full">
           <div className="gap-2 flex justify-between">
-            <div className="flex-col flex">
-              <BlurFade delay={BLUR_FADE_DELAY} className="flex flex-col w-fit">
-                <Avatar className="w-12 h-12 mb-4 shadow-lg">
-                  <AvatarImage src="/me.jpeg" className="" />
-                </Avatar>
-                <h1 className="text-lg font-medium">{data.name}</h1>
-                <BlurFadeText
-                  className="text-md mt-1 text-muted-foreground"
-                  delay={BLUR_FADE_DELAY}
-                  text={data.description}
-                />
-                <Markdown className="max-w-lg prose text-pretty font-sans text-md text-muted-foreground">
-                  {data.summary}
-                </Markdown>
-                {/* <Link
-                  href="/writing"
-                  onMouseOver={() => {
-                    writingIconRef.current?.startAnimation()
-                  }}
-                  onMouseLeave={() => {
-                    writingIconRef.current?.stopAnimation()
-                  }}
-                  className="text-gray-400 text-sm flex text-muted-foreground w-fit items-center gap-1 "
-                >
-                  <span className="text-md">
-                    Writing
-                  </span>
-                  <SquarePenIcon ref={writingIconRef} size={14} />
-                </Link> */}
+            <div className="flex-col flex flex-1">
+              <BlurFade delay={BLUR_FADE_DELAY} className="w-fit">
+                <Link href="/">
+                  <h1 className="text-lg font-medium">{data.name}</h1>
+                </Link>
               </BlurFade>
+              <BlurFadeText
+                className="text-md text-muted-foreground"
+                delay={BLUR_FADE_DELAY}
+                text={data.description}
+              />
             </div>
+            <BlurFade delay={BLUR_FADE_DELAY}>
+              <Link href="/writing" className="text-gray-400 text-sm flex text-muted-foreground w-fit items-center gap-1 ">
+                <span className="text-md">
+                  Writing
+                </span>
+                <Redo2 strokeWidth={1.5} className="w-3 h-3" />
+              </Link>
+            </BlurFade>
           </div>
         </div>
       </section>
-      {/* <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <Markdown className="max-w-lg prose text-pretty font-sans text-md text-muted-foreground">
-          {data.summary}
-        </Markdown>
-      </BlurFade> */}
+      <section id="about" className="space-y-3">
+        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+          <h2 className="text-md font-medium">About</h2>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <Markdown className="max-w-lg prose text-pretty font-sans text-md text-muted-foreground">
+            {data.summary}
+          </Markdown>
+        </BlurFade>
+      </section>
       <section id="work">
         <div className="flex min-h-0 flex-col space-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-md font-serif font-medium">Work Experience</h2>
+            <h2 className="text-md font-medium">Work Experience</h2>
           </BlurFade>
-          <ul className="list-none space-y-6">
-            {data.work.map((work, id) => (
-              <BlurFade
-                key={work.company}
-                delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-              >
-                {/* <ResumeCard
+          {data.work.map((work, id) => (
+            <BlurFade
+              key={work.company}
+              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+            >
+              <ResumeCard
                 key={work.company}
                 logoUrl={work.logoUrl}
                 altText={work.company}
@@ -77,32 +66,18 @@ export default function Page() {
                 subtitle={work.title}
                 url={work.url}
                 period={`${work.start} - ${work.end}`}
-              /> */}
-                <li className="flex flex-col sm:flex-row items-baseline gap-1 sm:gap-8">
-                  <div className="text-[#999999] text-sm">
-                    {`${work.start} — ${work.end}`}
-                  </div>
-                  <div className="flex text- flex-col">
-                    <div className="text-muted-foreground">
-                      {work.title} at {work.company}
-                    </div>
-                    {/* <div className="text-sm text-[#777]">
-                      {work.location}
-                    </div> */}
-                  </div>
-                </li>
-              </BlurFade>
-            ))}
-          </ul>
+              />
+            </BlurFade>
+          ))}
         </div>
       </section>
       <section id="contact">
         <div className="grid gap-4 w-full">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
-              <h2 className="text-md font-serif font-medium">Contact</h2>
+              <h2 className="text-md font-medium">Contact</h2>
               <p className="prose text-pretty font-sans text-md text-muted-foreground">
-                Check out my work on <a href="https://x.com/irangarci4" target="_blank" className="text-primary hover:underline not-prose font-semibold">𝕏</a>, reach out at <InlineCopyCode>hello@irangarcia.co</InlineCopyCode>, explore my projects on <a href="https://github.com/irangarcia" target="_blank" className="text-primary hover:underline not-prose">GitHub</a>, or connect on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="text-primary hover:underline not-prose">LinkedIn</a>.
+                Check out my work on <a href="https://x.com/irangarci4" target="_blank" className="text-primary hover:underline not-prose">𝕏</a>, reach out at <InlineCopyCode>hello@irangarcia.co</InlineCopyCode>, explore my projects on <a href="https://github.com/irangarcia" target="_blank" className="text-primary hover:underline not-prose">GitHub</a>, or connect on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="text-primary hover:underline not-prose">LinkedIn</a>.
               </p>
             </div>
           </BlurFade>
