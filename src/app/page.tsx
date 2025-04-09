@@ -8,7 +8,6 @@ import Markdown from "react-markdown";
 import Link from "next/link";
 import { Redo2 } from "lucide-react";
 import { InlineCopyCode } from "@/components/inline-copy-code";
-import { SquarePenIcon, SquarePenIconHandle } from "@/components/write-icon";
 import { useRef } from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
