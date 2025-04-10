@@ -23,16 +23,14 @@ export const ResumeCard = ({
   return (
     <Card className="w-full flex cursor-pointer group">
       <a href={url} target="_blank" className="w-full p-3 -mr-3 -ml-3 rounded-lg hover:bg-[#F5F4F4] focus:bg-[#F5F4F4] flex">
-        <div className="flex-none">
-          <Avatar className="border size-8 m-auto">
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className="object-contain"
-            />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
-          </Avatar>
-        </div>
+        <Avatar className="size-8 bg-white shadow-sm m-auto">
+          <AvatarImage
+            src={logoUrl}
+            alt={altText}
+            className="object-contain"
+          />
+          <AvatarFallback>{altText[0]}</AvatarFallback>
+        </Avatar>
         <div className="flex-grow flex ml-4 gap-y-2 flex-col">
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
