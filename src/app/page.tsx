@@ -77,7 +77,7 @@ export default function Page() {
             <div className="space-y-3">
               <h2 className="text-md font-medium">Contact</h2>
               <p className="prose text-pretty font-sans text-md text-muted-foreground">
-                Check out my work on <a href="https://x.com/irangarci4" target="_blank" className="text-primary hover:underline not-prose">𝕏</a>, reach out at <InlineCopyCode>hello@irangarcia.co</InlineCopyCode>, explore my projects on <a href="https://github.com/irangarcia" target="_blank" className="text-primary hover:underline not-prose">GitHub</a>, or connect on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="text-primary hover:underline not-prose">LinkedIn</a>.
+                Check out my work on <a href="https://x.com/irangarci4" target="_blank" className="text-primary hover:underline not-prose font-semibold">𝕏</a>, reach out at <InlineCopyCode>hello@irangarcia.co</InlineCopyCode>, explore my projects on <a href="https://github.com/irangarcia" target="_blank" className="text-primary hover:underline not-prose">GitHub</a>, or connect on <a href="https://linkedin.com/in/garcia-iran" target="_blank" className="text-primary hover:underline not-prose">LinkedIn</a>.
               </p>
             </div>
           </BlurFade>
